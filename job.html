@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Profiles</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: beige;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            min-height: 100vh;
+            margin: 0;
+            padding: 40px 20px;
+            color: #333;
+        }
+
+        h1 {
+            margin-bottom: 40px;
+            color: #2c3e50;
+            font-size: 2.5em;
+            text-align: center;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+        }
+
+        .jobs-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            width: 100%;
+            max-width: 1200px;
+        }
+
+        button {
+            padding: 15px 20px;
+            font-size: 16px;
+            font-weight: bold;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+            color: white;
+            position: relative;
+            overflow: hidden;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2); /* Improves text readability on colors */
+        }
+
+        button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25);
+            filter: brightness(1.05);
+        }
+
+        button:active {
+            transform: translateY(2px);
+        }
+
+        /* Attractive, balanced vibrant colors (medium saturation, not too light/dark) */
+        button:nth-child(1) {
+            background: linear-gradient(135deg, #e74c3c, #c0392b); /* Vibrant Red */
+        }
+        button:nth-child(1):hover {
+            background: linear-gradient(135deg, #c0392b, #a93226);
+        }
+
+        button:nth-child(2) {
+            background: linear-gradient(135deg, #3498db, #2980b9); /* Bright Blue */
+        }
+        button:nth-child(2):hover {
+            background: linear-gradient(135deg, #2980b9, #1f6f9b);
+        }
+
+        button:nth-child(3) {
+            background: linear-gradient(135deg, #f1c40f, #f39c12); /* Sunny Orange */
+        }
+        button:nth-child(3):hover {
+            background: linear-gradient(135deg, #e67e22, #d35400);
+        }
+
+        button:nth-child(4) {
+            background: linear-gradient(135deg, #2ecc71, #27ae60); /* Fresh Green */
+        }
+        button:nth-child(4):hover {
+            background: linear-gradient(135deg, #27ae60, #1e8449);
+        }
+
+        button:nth-child(5) {
+            background: linear-gradient(135deg, #9b59b6, #8e44ad); /* Rich Purple */
+        }
+        button:nth-child(5):hover {
+            background: linear-gradient(135deg, #8e44ad, #7d3c98);
+        }
+
+        button:nth-child(6) {
+            background: linear-gradient(135deg, #1abc9c, #16a085); /* Teal */
+        }
+        button:nth-child(6):hover {
+            background: linear-gradient(135deg, #16a085, #117a65);
+        }
+
+        button:nth-child(7) {
+            background: linear-gradient(135deg, #e67e22, #d35400); /* Deep Orange */
+        }
+        button:nth-child(7):hover {
+            background: linear-gradient(135deg, #d35400, #ba4a00);
+        }
+
+        button:nth-child(8) {
+            background: linear-gradient(135deg, #34495e, #2c3e50); /* Slate Gray-Blue */
+        }
+        button:nth-child(8):hover {
+            background: linear-gradient(135deg, #2c3e50, #1c2833);
+        }
+
+        button:nth-child(9) {
+            background: linear-gradient(135deg, #ff6b6b, #ee5a52); /* Coral Pink */
+        }
+        button:nth-child(9):hover {
+            background: linear-gradient(135deg, #ee5a52, #e74c3c);
+        }
+
+        button:nth-child(10) {
+            background: linear-gradient(135deg, #5dade2, #3498db); /* Sky Blue */
+        }
+        button:nth-child(10):hover {
+            background: linear-gradient(135deg, #3498db, #2874a6);
+        }
+
+        button:nth-child(11) {
+            background: linear-gradient(135deg, #48c9b0, #1abc9c); /* Aquamarine */
+        }
+        button:nth-child(11):hover {
+            background: linear-gradient(135deg, #1abc9c, #17a589);
+        }
+
+        button:nth-child(12) {
+            background: linear-gradient(135deg, #9c88ff, #8c7ae6); /* Indigo */
+        }
+        button:nth-child(12):hover {
+            background: linear-gradient(135deg, #8c7ae6, #7168d4);
+        }
+
+        button:nth-child(13) {
+            background: linear-gradient(135deg, #f5b041, #f39c12); /* Amber */
+        }
+        button:nth-child(13):hover {
+            background: linear-gradient(135deg, #f39c12, #e67e22);
+        }
+
+        button:nth-child(14) {
+            background: linear-gradient(135deg, #6c5ce7, #5f4bb6); /* Violet */
+        }
+        button:nth-child(14):hover {
+            background: linear-gradient(135deg, #5f4bb6, #553c9a);
+        }
+
+        button:nth-child(15) {
+            background: linear-gradient(135deg, #00b894, #00a07a); /* Emerald */
+        }
+        button:nth-child(15):hover {
+            background: linear-gradient(135deg, #00a07a, #008068);
+        }
+
+        /* Ripple effect with subtle white for contrast */
+        button::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        button:active::after {
+            width: 300px;
+            height: 300px;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 600px) {
+            .jobs-container {
+                grid-template-columns: 1fr;
+            }
+
+            .floating-btn {
+  position: fixed;
+  top: 30px;
+  left: 10px;
+  background-color: #ff8c00;
+  color: white;
+  border: none;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  font-size: 24px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  z-index: 1000;
+}
+
+.floating-btn:hover {
+  background-color: #e07b00;
+  transform: scale(1.1);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+        }
+    </style>
+</head>
+<body>
+    <button class="floating-btn">←</button>
+    <h1>Select a Job Profile</h1>
+    <div class="jobs-container">
+        <button>Remote</button>
+        <button>MNC</button>
+        <button>Marketing</button>
+        <button>Banking & Finance</button>
+        <button>Fresher</button>
+        <button>Internship</button>
+        <button>Startup</button>
+        <button>Software & IT</button>
+        <button>Production & Manufacturing</button>
+        <button>Data Science</button>
+        <button>Sales</button>
+        
+    </div>
+    
+
+    <script>
+        const container = document.querySelector(".jobs-container")
+        const buttons = container.children;
+        
+        const urls = [
+            "https://www.naukri.com/remote-jobs?src=discovery_trendingWdgt_homepage_srch",
+            "https://www.naukri.com/mnc-jobs?src=discovery_trendingWdgt_homepage_srch",
+            "https://www.naukri.com/marketing-jobs?src=discovery_trendingWdgt_homepage_srch",
+            "https://www.naukri.com/bfsi-jobs?src=discovery_trendingWdgt_homepage_srch",
+            "https://www.naukri.com/fresher-jobs?src=discovery_trendingWdgt_homepage_srch",
+            "https://www.naukri.com/internship-jobs?src=discovery_trendingWdgt_homepage_srch",
+            "https://www.naukri.com/startup-jobs?src=discovery_trendingWdgt_homepage_srch",
+            "https://www.naukri.com/it-jobs?src=discovery_trendingWdgt_homepage_srch",
+            "https://www.naukri.com/engineering-jobs?src=discovery_trendingWdgt_homepage_srch",
+            "https://www.naukri.com/data-science-jobs?src=discovery_trendingWdgt_homepage_srch",
+            "https://www.naukri.com/sales-jobs?src=discovery_trendingWdgt_homepage_srch"
+        ]
+
+        container.addEventListener('click', (event) => {
+    if (event.target.tagName === 'BUTTON') {
+        const index = Array.from(buttons).indexOf(event.target);  // Get clicked button's index
+        if (urls[index]) {
+            window.location.href = urls[index];  // Navigate by index
+        } else {
+            alert('No URL for this button!');
+        }
+    }})
+
+    let floatbtn = document.querySelector(".floating-btn")
+      floatbtn.addEventListener("click",()=>{
+         window.location.href = 'http://127.0.0.1:3000/index.html';
+      })
+    </script>
+</body>
+</html>
