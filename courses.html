@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Courses & Workshops - CRAZY NOTES</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="utility.css">
+  <style>
+    /* ========== PAGE STYLING ========== */
+    body {
+      font-family: "Poppins", sans-serif;
+      background-color: #fffdf5;
+      color: #333;
+      margin: 0;
+      padding: 0;
+    }
+
+    .buttons{background-color: transparent;}
+
+    header {
+      background-color: #fff7cc;
+      padding: 15px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .logo {
+      margin-left: 1%;
+      display: flex;
+      align-items: center;
+      font-weight: bold;
+      font-size: 1.6rem;
+    }
+
+    .logo1 {
+      color: #ff8c00;
+    }
+
+    .logo2 {
+      color: #444;
+      margin-left: 5px;
+    }
+
+    nav a {
+      text-decoration: none;
+      margin-left: 20px;
+      color: #444;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #ff8c00;
+    }
+
+    main {
+      margin-top: -27px;
+      text-align: center;
+      padding: 80px 20px 50px 20px;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 15px;
+      color: #222;
+    }
+
+    p.subtitle {
+      color: #555;
+      font-size: 1.1rem;
+      margin-bottom: 50px;
+    }
+
+    .courses-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+    }
+
+    .course-card {
+      background: #fffbe6;
+      width: 300px;
+      border-radius: 20px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      transition: all 0.3s ease;
+      text-align: left;
+    }
+
+    .course-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+    }
+
+    .course-card img {
+      width: 100%;
+      border-radius: 15px;
+      margin-bottom: 15px;
+    }
+
+    .course-card h3 {
+      font-size: 1.4rem;
+      color: #222;
+      margin-bottom: 10px;
+    }
+
+    .course-card p {
+      color: #555;
+      font-size: 0.95rem;
+      margin-bottom: 20px;
+      line-height: 1.5;
+    }
+
+    .btn-join {
+      background-color: #ffcf33;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 10px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: all 0.3s;
+    }
+
+    .btn-join:hover {
+      background-color: #ffb400;
+      transform: scale(1.05);
+    }
+
+    footer {
+      background-color: #222;
+      color: white;
+      text-align: center;
+      padding: 25px 0;
+      margin-top: 60px;
+    }
+
+    @media (max-width: 768px) {
+      .course-card {
+        width: 90%;
+      }
+
+       .floating-btn {
+    top: 20px;
+    left: 20px;
+    width: 50px;
+    height: 50px;
+    font-size: 20px;
+  }
+    }
+
+    /* Floating button styles */
+.floating-btn {
+  position: fixed;
+  top: 30px;
+  left: 30px;
+  background-color: #ff8c00;
+  color: white;
+  border: none;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  font-size: 24px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  z-index: 1000;
+}
+
+.floating-btn:hover {
+  background-color: #e07b00;
+  transform: scale(1.1);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+
+  </style>
+</head>
+
+<body>
+ 
+  <main>
+    <h1>Courses & Workshops</h1>
+    <p class="subtitle">Enhance your skills through interactive courses and guided workshops.</p>
+
+    <div class="courses-container">
+      <div class="course-card">
+        <img src="webdevelopment.jpg" alt="Web Development">
+        <h3>Web Development Bootcamp</h3>
+        <p>Learn HTML, CSS, and JavaScript from scratch and build your first interactive website.</p>
+        <button class="btn-join" onclick="webdevplaylist()">Join Now</button>
+      </div>
+
+      <div class="course-card">
+        <img src="dataessentials.jpg" alt="Data Science">
+        <h3>Data Science Essentials</h3>
+        <p>Master Python, data visualization, and AI fundamentals with hands-on projects.</p>
+        <button class="btn-join" onclick="dataessentials()">Join Now</button>
+      </div>
+
+      <div class="course-card">
+        <img src="graphicdesigning.jpg" alt="Design">
+        <h3>Graphic Design Workshop</h3>
+        <p>Explore color theory, typography, and layout design using Canva & Photoshop.</p>
+        <button class="btn-join" onclick="graphicdesigning()">Join Now</button>
+      </div>
+
+      <div class="course-card">
+        <img src="cybersecurity.jpg" alt="Cyber Security">
+        <h3>Cyber Security Basics</h3>
+        <p>Understand online threats, encryption, and ethical hacking principles.</p>
+        <button class="btn-join" onclick="cybersecurity()">Join Now</button>
+      </div>
+
+      <div class="course-card">
+        <img src="machine.png" alt="AI">
+        <h3>AI & Machine Learning</h3>
+        <p>Dive into neural networks and predictive modeling with interactive examples.</p>
+        <button class="btn-join" onclick="machinelearning()">Join Now</button>
+      </div>
+
+      <div class="course-card">
+        <img src="entrepreneurship.webp" alt="Entrepreneurship">
+        <h3>Entrepreneurship 101</h3>
+        <p>Learn how to turn your ideas into reality with real-world business strategies.</p>
+        <button class="btn-join" onclick="entrepreneurship()">Join Now</button>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 CRAZY NOTES. All rights reserved.</p>
+  </footer>
+  <!-- Floating button (add onclick in your JS later, e.g., onclick="goToHome()") -->
+<button class="floating-btn">←</button>
+
+  <script src="script.js"></script>
+  <script>
+      let floatbtn = document.querySelector(".floating-btn")
+      floatbtn.addEventListener("click",()=>{
+         window.location.href = 'index.html';
+      })
+        function webdevplaylist(){
+          window.open("https://www.youtube.com/playlist?list=PLu0W_9lII9agq5TrH9XLIKQvv0iaF2X3w","_blank")
+        }
+        function dataessentials(){
+          window.open("https://youtube.com/playlist?list=PLTGxZwZVUal5MWQ6srD30AlHn8-SAxq4l&si=Mt067jC2lB_eNOP4","_blank")
+        }
+        function graphicdesigning(){
+          window.open("https://youtube.com/playlist?list=PLoaqvymyuiqUdNqXhpQ6eydIlgvgNJwIb&si=c9moOR54kZq1j5j5","_blank")
+        }
+        function cybersecurity(){
+          window.open("https://youtube.com/playlist?list=PLoaqvymyuiqUVmxbzVUkALWHwGtn0hdJd&si=2OYkuP9HZ7WHzS_m","_blank")
+        }
+        function machinelearning(){
+          window.open("https://youtube.com/playlist?list=PLoaqvymyuiqUBDSIdlYJTFTWf-UzSgsfj&si=4JVxBBLnAhNuRCHS","_blank")
+        }
+        function entrepreneurship(){
+          window.open("https://youtube.com/playlist?list=PLoaqvymyuiqUh07QlerAb5ZJUkc5EFTs2&si=uAP6icBrr5ioI2J1","_blank")
+        }
+  </script>
+</body>
+
+</html>
